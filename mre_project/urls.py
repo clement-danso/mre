@@ -1,0 +1,34 @@
+"""mre_project URL Configuration
+
+The `urlpatterns` list routes URLs to views. For more information please see:
+    https://docs.djangoproject.com/en/2.2/topics/http/urls/
+Examples:
+Function views
+    1. Add an import:  from my_app import views
+    2. Add a URL to urlpatterns:  path('', views.home, name='home')
+Class-based views
+    1. Add an import:  from other_app.views import Home
+    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
+Including another URLconf
+    1. Import the include() function: from django.urls import include, path
+    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
+"""
+from django.contrib import admin
+from django.urls import path
+from mirensah import views
+
+urlpatterns = [
+	path('admin/', admin.site.urls),
+	path('', views.home, name="home"),
+    path('empty/', views.empty, name="empty"),
+    path('home/', views.home, name="home"),
+    path('customer/<str:pk>/', views.customer, name="customer"),
+    path('addsales/<str:pk>/', views.addsale, name="addsale"),
+    path('createcustomer/', views.createcustomer, name="createcustomer"),
+    path('updatecustomer/<str:pk>/', views.updatecustomer, name="updatecustomer"),
+    path('updatesale/<str:pk>/', views.updatesale, name="updatesale"),
+    path('register/', views.register, name="register"),
+    path('login/', views.loginpage, name="login"),
+    path('logout/', views.logoutuser, name="logoutuser"),
+ #   path('trying/', views.trying, name="trying"),
+]

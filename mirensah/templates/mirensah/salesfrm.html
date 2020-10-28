@@ -1,0 +1,80 @@
+
+{% extends 'mirensah/base.html' %}
+{% load static %}
+{% block title %} <title>Record Sales</title> {% endblock %}
+
+
+{%block content %}
+<div class="container">
+<h2></h2>
+<p>Carefully fill out the dales record form </p>
+</div>
+
+<div class="container">
+  <form action="" method="POST">
+	  {% csrf_token %}
+	  
+  <div class="row">
+    <div class="col-25">
+      <label for="fname">Shop</label>
+    </div>
+    <div class="col-75">
+      {{fm.shop}}
+    </div>
+  </div>
+
+ <div class="row">
+    <div class="col-25">
+      <label for="fname">Customer</label>
+    </div>
+    <div class="col-75">
+      {{fm.customer}}
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-25">
+      <label for="fname">Product</label>
+    </div>
+    <div class="col-75">
+      {{fm.product}}
+    </div>
+  </div>
+  
+   <div class="row">
+    <div class="col-25">
+      <label for="fname">Flavour</label>
+    </div>
+    <div class="col-75">
+      {{fm.flavour}}
+    </div>
+  </div>
+  
+   <div class="row">
+    <div class="col-25">
+      <label for="fname">Quantity</label>
+    </div>
+    <div class="col-75">
+      {{fm.quantity}}
+    </div>
+  </div>
+  
+   <div class="row">
+    <div class="col-25">
+      <label for="fname">Total</label>
+    </div>
+    <div class="col-75">
+      {{fm.total_amount}}
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <input type="submit" value="Submit">
+  </div>
+  </form>
+  
+  
+</div>
+
+
+{% endblock %}

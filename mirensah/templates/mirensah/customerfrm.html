@@ -1,0 +1,53 @@
+
+{% extends 'mirensah/base.html' %}
+{% load static %}
+{% block title %} <title>Customer Registration Form</title> {% endblock %}
+
+
+{%block content %}
+<div class="container">
+<h2>Customer Registration Form</h2>
+<p>Carefully fill out the form below </p>
+</div>
+
+<div class="container">
+  <form action="" method="POST">
+ {% csrf_token %}
+	  
+  <div class="row">
+    <div class="col-25">
+      <label for="fname">Name</label>
+    </div>
+    <div class="col-75">
+      {{fm.name}}
+    </div>
+  </div>
+
+ <div class="row">
+    <div class="col-25">
+      <label for="fname">Phone</label>
+    </div>
+    <div class="col-75">
+      {{fm.phone}}
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-25">
+      <label for="fname">Location</label>
+    </div>
+    <div class="col-75">
+      {{fm.location}}
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <input type="submit" value="Submit">
+  </div>
+  </form>
+  
+  
+</div>
+
+
+{% endblock %}

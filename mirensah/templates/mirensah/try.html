@@ -1,0 +1,11 @@
+<h2>Trying django's registration</h2>
+
+<form method="post">
+{% csrf_token %}
+
+{{form.as_p}}
+
+
+ <input type="submit" name="Signup" value="Signup" class="btn btn-primary btn btn-info" id="submit-id-signup" />
+
+</form>

@@ -1,0 +1,201 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% block title %} <title>BaSe Template</title> {% endblock %}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+<!-- CDN link -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+  integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<!--link to static files-->
+  <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+</head>
+
+<body id="index" class="home">
+	
+	<details>
+  <summary>Notification Desk</summary>
+  <p><h2>Wear a mask, Clean your hands, Keep a safe distance</h2></p>
+	</details>
+
+	<header>
+ <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">Mirensah Royal Enterprise</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="">Dashboard</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="">Products</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="">Stock Mgt.</a>
+      </li>
+    </ul>
+  </div>
+  <span>
+	  <li class="nav-item">
+        <a class="nav-link" href="">Shop Name</a>
+      </li>
+  </span>
+   <span>
+	   <li class="nav-item">
+        <a class="nav-link" href="{% url 'logoutuser' %}">Logout</a>
+      </li>
+  </span>
+ </nav>
+	</header
+
+{% block content %}
+<br>
+
+<div class="row">
+	
+	<div class="col">
+		<div class="col-md">
+			<div class="card text-center text-dark mb-3" id="total orders">
+				<div class="card-header">
+					<h5 class="card-title">Product Prices</h5>
+				</div>
+				<div class="card-body">
+					<table class="table table-sm">
+				<tr>
+					<th>Benny</th>
+					<th>Davita</th>
+					<th>Remy Spice</th>
+				</tr>
+				<tr>
+					<td>GH₵ {{ prod1.price }}</td>
+					<td>GH₵ {{ prod2.price }}</td>
+					<td>GH₵ {{ prod3.price }}</td>
+				</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+	<div class="col">
+		<div class="col-md">
+			<div class="card text-center text-dark mb-3" id="orders delivered">
+				<div class="card-header">
+					<h5 class="card-title">Stock Balance</h5>
+				</div>
+				<div class="card-body">
+					<table class="table table-sm">
+				<tr>
+					<th></th>
+					<th>Davita</th>
+					<th></th>
+					<th>Benny</th>
+					<th></th>
+					<th>Remy Spice</th>
+				</tr>
+				
+				<tr>
+					<td><strong>Orange</strong></td>
+					<td>40</td>
+					<td><strong>Chicken</strong></td>
+					<td>40</td>
+					<td><strong>Rem1</strong></td>
+					<td>40</td>
+				</tr>
+				
+				<tr>
+					<td><strong>Pineapple</strong></td>
+					<td>40</td>
+					<td><strong>Shrimps</strong></td>
+					<td>40</td>
+					<td><strong>Rem2</strong></td>
+					<td>40</td>
+				</tr>
+				
+				<tr>
+					<td><strong>Strawberry</strong></td>
+					<td>40</td>
+					<td><strong>Beef</strong></td>
+					<td>40</td>
+					<td><strong>Rem3</strong></td>
+					<td>40</td>
+				</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div>
+
+<div class="row">
+	<div class="col-md-5">
+		<h5>CUSTOMERS:</h5>
+		<hr>
+		<div class="card card-body">
+			<a class="btn btn-primary  btn-sm btn-block" href="{% url 'createcustomer' %}">Create Customer</a>
+			<table class="table table-sm">
+				<tr>
+					<th>Customer</th>
+					<th>Phone</th>
+					<th>Location</th>
+				</tr>
+				{% for customer in customers %}
+				<tr>
+					<td><a href="{% url 'customer' customer.id%}">{{ customer.name }}</a></td>
+					<td>{{ customer.phone }}</td>
+					<td>{{ customer.location }}</td><
+				</tr>
+				{% endfor %}
+			</table>
+		</div>
+	</div>
+
+	<div class="col-md-7">
+		<h5>Last 5 Sales:</h5>
+		<hr>
+		<div class="card card-body">
+			<table class="table table-sm">
+				<tr>
+					<th>Customer</th>
+					<th>Product</th>
+					<th>Flavour</th>
+					<th>Quantity Purchased</th>
+					<th>Total</th>
+					<th>Transaction Date</th>
+					<th>Update</th>
+				</tr>
+				
+				{% for sale in sales %}
+				<tr>	
+					<td>{{ sale.customer}}</td>
+					<td>{{ sale.product}}</td>
+					<td>{{ sale.flavour }}</td>
+					<td>{{ sale.quantity }}</td>
+					<td>{{ sale.total_amount }}</td>
+					<td>{{ sale.date_created }}</td>
+					<td><a class="btn btn-sm btn-info" href="">Update</a></td>
+				</tr>
+				{% endfor %}
+			</table>
+		</div>
+	</div>
+</div>
+</div
+
+{% endblock %}
+
+
+<footer>footer</footer>
+</body>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</html>

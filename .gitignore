@@ -1,0 +1,16 @@
+manage.py
+/mirensah/migrations
+/mirensah/__pycache__
+/mirensah/__init__.py
+/mirensah/apps.py
+/mirensah/admin.py
+/mirensah/tests.py
+/mre_project/__pycache__
+/mre_project/__init__.py
+/mre_project/settings.py
+/mre_project/settings.py.save
+/mre_project/wsgi.py
+/.env
+/.git
+/static
+/staticfiles
