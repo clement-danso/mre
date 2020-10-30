@@ -6,7 +6,7 @@ from mirensah.models import *
 from mirensah.forms import *
 from django.db.models import Sum
 from mirensah.decorators import *
-
+from django.views.decorators.csrf import csrf_exempt
 
 # Create your views here.
 def empty(request):
@@ -16,8 +16,14 @@ def empty(request):
 	
 	return render(request, 'mre_app/empty.html')
 	
+
+def home2(request):
+	
+	return render(request, 'mirensah/dashboard2.html')
+
+
 @login_required(login_url='login')
-@allowed_users(allowed_roles=['Managers'])
+@dashboard
 def home(request):
 	sales=Sales.objects.all()
 	prod1=Product.objects.get(id=1)
@@ -111,6 +117,9 @@ def register(request):
 	context = {'form':form}
 	return render(request, 'mirensah/register.html', context)
 	
+
+@csrf_exempt
+
 @unauthenticated_user
 def loginpage(request):
 	if request.method == 'POST':
@@ -143,3 +152,6 @@ def logoutuser(request):
 	
 #	context={'form':form}
 #	return render(request, 'mirensah/try.html', context)
+
+
+#@allowed_users(allowed_roles=['Managers'])

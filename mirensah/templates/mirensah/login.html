@@ -33,8 +33,8 @@
             </div>  
             
             <div class="panel-body" >
-                    <form  class="form-horizontal" method="post" >
-                        {% csrf_token %}
+                    <form  class="form-horizontal" method="POST" >
+                        {{ csrf_token }}
                         
                         <div id="div_id_username" class="form-group required">
                             <label for="id_username" class="control-label col-md-4  requiredField"> Username<span class="asteriskField">*</span> </label>

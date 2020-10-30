@@ -22,6 +22,7 @@ urlpatterns = [
 	path('', views.home, name="home"),
     path('empty/', views.empty, name="empty"),
     path('home/', views.home, name="home"),
+    path('home2/', views.home2, name="home2"),
     path('customer/<str:pk>/', views.customer, name="customer"),
     path('addsales/<str:pk>/', views.addsale, name="addsale"),
     path('createcustomer/', views.createcustomer, name="createcustomer"),
